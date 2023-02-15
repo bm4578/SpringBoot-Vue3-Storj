@@ -11,7 +11,7 @@
       <div class="input">
         <el-input
             style="width: 400px"
-            v-model="data.url" placeholder="网址" />
+            v-model="data.url" placeholder="分享网址" />
         <el-input
             style="width: 400px"
             v-model="data.newName" placeholder="转换后名称" />
@@ -30,7 +30,7 @@ import { ElMessage } from 'element-plus'
 import {convert_List} from "../api/user";
 const data = reactive({
   url: '',
-  newName: '',
+  newName: 'docker-compose.yml',
   returnUrl:''
 })
 
