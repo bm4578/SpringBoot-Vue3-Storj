@@ -3,12 +3,20 @@
 
     <el-card class="box-card">
       <el-divider content-position="left"><el-link type="primary" disabled>自用项目 ，禁止商用 ！！！</el-link></el-divider>
+      <el-divider content-position="right"><el-link>
+        <a href="https://ap1.storj.io/new-project-dashboard" target="_blank" style="text-decoration: none">
+          前往
+        </a>
+      </el-link></el-divider>
       <div class="input">
         <el-input
             style="width: 400px"
-            v-model="input" placeholder="请输入" />
-        <el-button color="#626aef" plain @click="convert">转换</el-button>
-        <el-button color="#626aef" plain @click="btn(input)">一键复制</el-button>
+            v-model="data.url" placeholder="网址" />
+        <el-input
+            style="width: 400px"
+            v-model="data.newName" placeholder="转换后名称" />
+        <el-button color="#626aef" plain @click="convert()">转换</el-button>
+        <el-button color="#626aef" plain @click="btn()">一键复制</el-button>
       </div>
     </el-card>
   </div>
@@ -17,15 +25,31 @@
 
 <script setup>
 import useClipboard from 'vue-clipboard3'
-import {ref} from 'vue'
+import {reactive} from 'vue'
 import { ElMessage } from 'element-plus'
-let input = ref()
+import {convert_List} from "../api/user";
+const data = reactive({
+  url: '',
+  newName: '',
+  returnUrl:''
+})
+
+
 //转换
 const convert=()=>{
-alert("fdjd")
+  convert_List({
+    url: data.url,
+    newName:data.newName
+  }).then(res=>{
+    data.returnUrl= res.msg
+    ElMessage({
+      message: '转换成功 ，请复制',
+      type: 'success',
+    })
+  })
 }
-const btn=(input)=>{
-  copy(input)
+const btn=()=>{
+  copy(data.returnUrl)
 }
 
 //一键复制
