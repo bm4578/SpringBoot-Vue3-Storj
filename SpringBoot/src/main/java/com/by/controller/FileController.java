@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @title
  * @date 2023/2/15 1:57 下午
  */
-@Api(value = "/api", tags = {"转换接口"})
+@Api(value = "/api", tags = {"接口转换"})
 @RestController
 @RequestMapping("/api")
 public class FileController {
