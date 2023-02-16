@@ -10,10 +10,8 @@
       </el-link></el-divider>
       <div class="input">
         <el-input
-            style="width: 400px"
             v-model="data.url" placeholder="分享网址" />
         <el-input
-            style="width: 400px"
             v-model="data.newName" placeholder="转换后名称" />
         <el-button color="#626aef" plain @click="convert()">转换</el-button>
         <el-button color="#626aef" plain @click="btn()">一键复制</el-button>
@@ -71,13 +69,6 @@ const copy = async (Msg) => {
 .common-layout{
   width: 100%;
 }
-.text {
-  font-size: 14px;
-}
-
-.item {
-  padding: 18px 0;
-}
 
 .box-card {
   width: 75%;
@@ -86,7 +77,14 @@ const copy = async (Msg) => {
 }
 .input{
   display: flex;
-  margin-top: 100px;
+  width: 80%;
+  margin: 10% auto;
   justify-content: center;
+}
+
+@media screen and (max-width: 960px) {
+  .input {
+    display: inline;
+  }
 }
 </style>
