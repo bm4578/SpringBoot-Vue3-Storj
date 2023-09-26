@@ -26,7 +26,7 @@ public class FileController {
     @PostMapping
     public ResultModel URL(String url ,String newName){
 
-        String newURL = url+"?download=1 -O" + newName;
+        String newURL = url+"?download=1 -O " + newName;
         return ResultModel.ok(newURL);
     }
 }

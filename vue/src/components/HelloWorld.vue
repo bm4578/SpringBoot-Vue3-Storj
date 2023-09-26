@@ -28,7 +28,7 @@ import { ElMessage } from 'element-plus'
 import {convert_List} from "../api/user";
 const data = reactive({
   url: '',
-  newName: 'docker-compose.yml',
+  newName: '',
   returnUrl:''
 })
 
